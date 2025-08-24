@@ -1,33 +1,46 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# ====== BUILD / JAVA ======
+/target/
+*.class
+*.log
+*.tmp
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# ====== IDE / EDITOR ======
 .vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# ====== SISTEMA / OS ======
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ====== SPRING BOOT ======
+logs/
+*.pid
+
+# ====== DATOS LOCALES (NO VERSIONAR) ======
+# BD SQLite y otros datos runtime (se crean en tu máquina)
+data/
+!data/README.md
+
+# Archivos subidos por usuario fuera de /resources/static
+# (para producción real, estos irían a S3/NAS; aquí los dejamos locales)
+images/
+!images/README.md
+
+# ====== CREDENCIALES / SECRETS (PREVENCIÓN) ======
+.env
+*.key
+*.pem
+*.p12
+*.keystore
+*.der
+# Si en el futuro usas configs locales:
+src/main/resources/application-local.properties
+src/main/resources/application-local.yml
+
+# ====== FRONTEND (POR SI AÑADES LUEGO) ======
+node_modules/
