@@ -1,2 +1,32 @@
-/mvnw text eol=lf
-*.cmd text eol=crlf
+# ====== NORMALIZACIÓN DE TEXTO ======
+* text=auto
+
+# Forzamos LF en el repositorio para código y configs
+*.java        text eol=lf
+*.xml         text eol=lf
+*.properties  text eol=lf
+*.yml         text eol=lf
+*.yaml        text eol=lf
+*.html        text eol=lf
+*.css         text eol=lf
+*.js          text eol=lf
+*.md          text eol=lf
+*.sh          text eol=lf
+
+# En Windows, scripts .bat deben quedar con CRLF
+*.bat         text eol=crlf
+
+# ====== BINARIOS (SIN DIFF / SIN CONVERSIÓN EOL) ======
+*.jar     binary
+*.war     binary
+*.ear     binary
+*.class   binary
+*.db      binary
+*.db-*    binary
+*.sqlite  binary
+*.pdf     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
