@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Login – EV3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    body { font-family: Calibri, Arial, sans-serif; margin: 2rem; }
+    .card { max-width: 420px; margin: auto; padding: 1.5rem; border: 1px solid #ddd; border-radius: 10px; }
+    .field { margin-bottom: 0.8rem; }
+    label { display:block; margin-bottom: 0.25rem; font-weight: bold; }
+    input { width: 100%; padding: 0.55rem; border: 1px solid #ccc; border-radius: 8px; }
+    .btn { padding: 0.6rem 1rem; border: 0; border-radius: 8px; background:#111; color:#fff; cursor:pointer; }
+    .err { color:#b30000; margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Ingreso</h2>
+    <form th:action="@{/login}" th:object="${form}" method="post">
+      <div th:if="${#fields.hasGlobalErrors()}" class="err" th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+      <div class="field">
+        <label for="username">Email</label>
+        <input id="username" type="email" th:field="*{username}" placeholder="alumno@demo.cl" required />
+        <div class="err" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+      </div>
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" th:field="*{password}" placeholder="1234" required />
+        <div class="err" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+      </div>
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+    <p style="color:#555;margin-top:1rem;">Demo: alumno@demo.cl / 1234 &nbsp; | &nbsp; profesor@demo.cl / 1234</p>
+  </div>
+</body>
+</html>
